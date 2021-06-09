@@ -3,16 +3,16 @@ import './FullRow.css';
 import ShortRow from '../ShortRow/ShortRow';
 import LongRow from '../LongRow/LongRow';
 
-const FullRow = ({rows:{firstRow , secondRow , thirdRow , fourthRow}}) => {
+const GetNumberRow = ({rows:{firstRow , secondRow , thirdRow , fourthRow}}) => {
             
             return (
-                <div className='full_row_container'>
+            <div className='full_row_container'>
                 <LongRow firstRow={firstRow}/>
                 <ShortRow secondRow={secondRow}/>
                 <ShortRow thirdRow={thirdRow}/>
                 <ShortRow fourthRow={fourthRow}/>
-                </div>
+            </div>
             )
 }
 
-export default FullRow
+export default GetNumberRow

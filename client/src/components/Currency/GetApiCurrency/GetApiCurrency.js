@@ -29,11 +29,12 @@ class GetApiCurrency extends React.Component {
     }
     
     render(){
+        const {RUB, USD, EUR} = this.state;
         return(
           <div>
-            <RubCupcake/>
-            <UsdCupcake/>
-            <EurCupcake/>
+            <RubCupcake currency={RUB}/>
+            <UsdCupcake currency={USD}/>
+            <EurCupcake currency={EUR}/>
             {/* <RubUsd/>
             <RubEur/>
             <RubUsd/> */}

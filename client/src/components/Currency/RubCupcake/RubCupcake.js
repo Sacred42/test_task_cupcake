@@ -1,10 +1,9 @@
-import LongRow from '../LongRow/LongRow';
-import ShortRow from '../ShortRow/ShortRow';
+import GetNumberRow from'../../GetNumberRow/GetNumberRow';
 
-const RubCupcake = () => {
+const RubCupcake = (props) => {
     
     return(
-      
+      <GetNumberRow currency={props}/>
     )
 }
 

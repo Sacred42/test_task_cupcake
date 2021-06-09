@@ -16,8 +16,15 @@ class GetApiCurrency extends React.Component {
         EUR : null
     }
     componentDidMount(){
-      this.ajax.ReqRender()
+      this.ajax.reqRender()
       .then((values)=>this.update(values))
+    }
+
+    componentDidUpdate(){
+      console.log('update')
+      console.log(this.state)
+      this.ajax.reqPoll()
+      .then((values)=>this.update(values));
     }
 
     update(values){
@@ -38,6 +45,7 @@ class GetApiCurrency extends React.Component {
             {/* <RubUsd/>
             <RubEur/>
             <RubUsd/> */}
+
           </div>
         )
     }

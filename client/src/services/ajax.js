@@ -4,22 +4,47 @@ export default class Ajax {
     sendRequest = async(url) => {
       return await fetch(`${this._base}${url}`)
       .then((date)=>date.json())
-      .then(({rates})=>rates) 
+      .then(({rates})=>rates)
+      .catch((err)=>console.log(err , 'ошибка'))
     }
 
-    ReqRender = () => {
-        return Promise.all([this.ReqFirst(), this.ReqSecond(), this.ReqThird()])
+    sendRequestPoll = async(url) => {
+        return await fetch(`${this._base}${url}`)
+      .then((date)=>date.json())
+      .then(({rates})=>rates)
+      .catch((err)=>console.log(err , 'ошибка'))
     }
 
-    ReqFirst = () => {
+    reqRender = () => {
+        return Promise.all([this.reqFirst(), this.reqSecond(), this.reqThird()])
+    }
+
+    reqPoll = () => {
+        return Promise.all([this.reqFirstPoll(), this.reqSecondPoll(), this.reqThird()])
+    }
+
+    reqFirst = () => {
         return this.sendRequest('/first');
     }
 
-    ReqSecond = () => {
+    reqSecond = () => {
         return this.sendRequest('/second');
     }
 
-    ReqThird = () => {
+    reqThird = () => {
         return this.sendRequest('/third');
+    }
+
+    reqFirstPoll = () => {
+        console.log('работает')
+        return this.sendRequestPoll('/first/poll');
+    }
+
+    reqSecondPoll = () => {
+        return this.sendRequestPoll('/second/poll');
+    }
+
+    reqThirdPoll = () => {
+        return this.sendRequestPoll('/third/poll');
     }
 }

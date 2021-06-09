@@ -3,14 +3,12 @@ import ShortRow from '../ShortRow/ShortRow';
 import LongRow from '../LongRow/LongRow';
 import './GetNumberRow.css';
 
-const GetNumberRow = ({currency : {currency}}) => {
-            const firstRow = 1;
-            const [classSmaller , setClassSmaller] = useState('mark_row');
+const GetNumberRow = ({rowName , currency : {currency}}) => {
             return (
             <div >
                 {currency ? 
                 <div className='full_row_container'>
-                <LongRow firstRow={firstRow}/>
+                <LongRow firstRow={rowName }/>
                 <ShortRow value = {currency.firstCurrency}/>
                 <ShortRow value = {currency.secondCurrency}/>
                 <ShortRow value = {currency.thirdCurrency}/>

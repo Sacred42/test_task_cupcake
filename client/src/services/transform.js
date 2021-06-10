@@ -9,8 +9,17 @@ return {
  }
 }
 
-const transformDates = (values , nameCurrency ) => {
-   
+const transformDates = (values , nameCurrency) => {
+   return [values[0][nameCurrency], values[1][nameCurrency], values[2][nameCurrency]];
+}
+
+const transformBaseCurrency = (currency , nameCurrency) => {
+    console.log(values, 'это вал1');
+ return getSmaller(currency, nameCurrency);
+}
+
+const getSmaller = (values , nameCurrency ) => {
+    console.log(values, 'это вал');
     const arrSpecificValues = [values[0][nameCurrency], values[1][nameCurrency], values[2][nameCurrency]];
     const smaller = arrSpecificValues.reduce((a,b)=> a > b ? b : a);
     return arrSpecificValues.map((elem)=>{
@@ -36,4 +45,4 @@ const getTransformCurrencyPair = (firstCurrency , secondCurrency) => {
 
 
 
-export {getSortedCurrency , getTransformCurrencyPair}
+export {getSortedCurrency , getTransformCurrencyPair , transformBaseCurrency}

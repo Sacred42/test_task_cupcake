@@ -1,6 +1,6 @@
 import React from 'react';
 import Ajax from  '../../../services/ajax';
-import {getSortedCurrency , getTransformCurrencyPair as currencyPair} from '../../../services/transform';
+import {getSortedCurrency , getTransformCurrencyPair as currencyPair , transformBaseCurrency} from '../../../services/transform';
 import EurUsd from '../EurUsd/EurUsd';
 import EurCupcake from '../EurCupcake/EurCupcake';
 import RubCupcake from '../RubCupcake/RubCupcake';
@@ -40,9 +40,9 @@ class GetApiCurrency extends React.Component {
         console.log(RUB , 'RUB')
         return(
           <div>
-            <RubCupcake currency={RUB}/>
-            <UsdCupcake currency={USD}/>
-            <EurCupcake currency={EUR}/>
+            <RubCupcake currency={transformBaseCurrency(RUB)}/>
+            <UsdCupcake currency={transformBaseCurrency(USD)}/>
+            <EurCupcake currency={transformBaseCurrency(EUR)}/>
             <RubUsd currency={currencyPair(RUB, USD)}/>
             <RubEur currency={currencyPair(RUB, EUR)}/>
             <EurUsd currency={currencyPair(EUR, USD)}/>

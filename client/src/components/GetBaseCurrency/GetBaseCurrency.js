@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import ShortRow from '../ShortRow/ShortRow';
 import LongRow from '../LongRow/LongRow';
-import './GetNumberRow.css';
+import './GetBaseCurrency.css';
 
-const GetNumberRow = ({rowName , currency : {currency}}) => {
+const GetBaseCurrency = ({rowName , currency : {currency}}) => {
             return (
             <div >
                 {currency ? 
-                <div className='full_row_container'>
+                <div className='base_row_container'>
                 <LongRow firstRow={rowName }/>
                 <ShortRow value = {currency.firstCurrency}/>
                 <ShortRow value = {currency.secondCurrency}/>
@@ -25,4 +25,4 @@ const GetNumberRow = ({rowName , currency : {currency}}) => {
 
 }
 
-export default GetNumberRow
+export default GetBaseCurrency

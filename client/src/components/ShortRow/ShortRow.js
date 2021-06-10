@@ -10,11 +10,10 @@ const ShortRow = (props) => {
             const {value , smaller} = props.value;
             setValueDiv(value);
             setSmaller(smaller);
-            console.log('объект');
         }
         else{
           setValueDiv(props.value);
-          console.log('не объект');
+
         }
         return ()=>{
             setValueDiv(null);

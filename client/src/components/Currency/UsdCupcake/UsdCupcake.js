@@ -1,9 +1,9 @@
-import GetNumberRow from'../../GetNumberRow/GetNumberRow';
+import GetBaseCurrency from'../../GetBaseCurrency/GetBaseCurrency';
 
 const UsdCupCake = (props) => {
     const rowName = 'USD/CUPCAKE';
     return(
-      <GetNumberRow currency = {props} rowName = {rowName}/>
+      <GetBaseCurrency currency = {props} rowName = {rowName}/>
     )
 }
 

@@ -1,9 +1,9 @@
 import GetBaseCurrency from'../../GetBaseCurrency/GetBaseCurrency';
 
-const EurUsd = (props) => {
+const EurUsd = ({currency}) => {
     const rowName = 'EUR/USD'
     return(
-      <GetBaseCurrency currency={props} rowName={rowName}/>
+      <GetBaseCurrency currency={currency} rowName={rowName}/>
     )
 }
 

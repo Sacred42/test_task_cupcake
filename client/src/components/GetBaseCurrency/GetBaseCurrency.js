@@ -3,16 +3,15 @@ import ShortRow from '../ShortRow/ShortRow';
 import LongRow from '../LongRow/LongRow';
 import './GetBaseCurrency.css';
 
-const GetBaseCurrency = ({rowName , currency : {currency}}) => {
-            console.log(currency , 'курент')
+const GetBaseCurrency = ({rowName , currency }) => {
             return (
             <div >
                 {currency ? 
                 <div className='base_row_container'>
                 <LongRow firstRow={rowName }/>
-                <ShortRow value = {currency.firstCurrency}/>
-                <ShortRow value = {currency.secondCurrency}/>
-                <ShortRow value = {currency.thirdCurrency}/>
+                <ShortRow value = {currency.vallueCurency1}/>
+                <ShortRow value = {currency.vallueCurency2}/>
+                <ShortRow value = {currency.vallueCurency3}/>
                 {/* <LongRow firstRow={firstRow}/>
                 <ShortRow secondRow={1}/>
                 <ShortRow thirdRow={1}/>

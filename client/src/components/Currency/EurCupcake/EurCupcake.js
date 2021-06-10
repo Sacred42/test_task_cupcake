@@ -1,9 +1,10 @@
 import GetBaseCurrency from'../../GetBaseCurrency/GetBaseCurrency';
 
-const EurCupCake = (props) => {
+const EurCupCake = ({currency}) => {
+  console.log(currency, "этот пропс")
     const rowName = 'EUR/CUPCAKE'
     return(
-      <GetBaseCurrency currency={props} rowName={rowName}/>
+      <GetBaseCurrency currency={currency} rowName={rowName}/>
     )
 }
 

@@ -2,27 +2,34 @@ const getSortedCurrency = (values, nameCurrency) => {
 
 const transArr = transformDates(values, nameCurrency );
 
-return {
-    firstCurrency : transArr[0],
-    secondCurrency : transArr[1],
-    thirdCurrency : transArr[2]
- }
+return transArr;
 }
 
 const transformDates = (values , nameCurrency) => {
    return [values[0][nameCurrency], values[1][nameCurrency], values[2][nameCurrency]];
 }
 
-const transformBaseCurrency = (currency , nameCurrency) => {
-    console.log(values, 'это вал1');
- return getSmaller(currency, nameCurrency);
+const transformBaseCurrency = (values) => {
+ console.log(values , 'должен быть массив')
+ return getSmaller(values);
 }
 
-const getSmaller = (values , nameCurrency ) => {
-    console.log(values, 'это вал');
-    const arrSpecificValues = [values[0][nameCurrency], values[1][nameCurrency], values[2][nameCurrency]];
-    const smaller = arrSpecificValues.reduce((a,b)=> a > b ? b : a);
-    return arrSpecificValues.map((elem)=>{
+const getTransformCurrencyPair = (currency1, currency2) => {
+ console.log(currency1 , currency2 , 'два массива');
+ const arr = [];
+ for(let i = 0; i < currency1.length; i++){
+     for(let j = 0; j < currency2.length; j++){
+         if(i === j){
+             arr.push(currency1[i]/currency2[j]);
+         }
+     }
+ }
+ return getSmaller(arr);
+}
+
+const getSmaller = (values) => {
+    const smaller = values.reduce((a,b)=> a > b ? b : a);
+    const getWithSmaller =  values.map((elem)=>{
         if(smaller === elem){
             return {
                 value : elem,
@@ -34,14 +41,26 @@ const getSmaller = (values , nameCurrency ) => {
             smaller : false
         }
     }) 
+    
+    return setObj(getWithSmaller);
 }
 
-const getTransformCurrencyPair = (firstCurrency , secondCurrency) => {
- 
-  console.log(firstCurrency , secondCurrency);
-  console.log('отношение')
-  return {value : firstCurrency/secondCurrency};
+const setObj = (arr) => {
+    const obj = {
+    ...arr
+    }
+    console.log(obj)
+    let index = 0;
+    const newObj = {}
+    
+    for(let el in obj){
+     index += 1;
+     newObj[`vallueCurency${index}`] = obj[el]
+    }
+    return newObj;
 }
+
+
 
 
 

@@ -29,7 +29,6 @@ const getSmaller = (values) => {
         }
         return {
             value : elem,
-            smaller : false
         }
     }) 
     
@@ -37,21 +36,10 @@ const getSmaller = (values) => {
 }
 
 const setObj = (arr) => {
-    const obj = {
-    ...arr
-    }
-    let index = 0;
-    const newObj = {}
-    
-    for(let el in obj){
-     index += 1;
-     newObj[`vallueCurency${index}`] = obj[el]
-    }
-    return newObj;
+    return arr.reduce((acc , a ,b)=>{
+     acc[`valueCurrency${b + 1}`] = a;
+     return acc;
+    } , {});
 }
-
-
-
-
 
 export {getSortedCurrency , getTransformCurrencyPair , transformBaseCurrency}

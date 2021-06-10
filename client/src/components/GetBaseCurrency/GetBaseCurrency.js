@@ -8,9 +8,9 @@ const GetBaseCurrency = ({rowName , currency }) => {
                 {currency ? 
                 <div className='row_container'>
                 <LongRow firstRow={rowName}/>
-                <ShortRow value = {currency.vallueCurency1}/>
-                <ShortRow value = {currency.vallueCurency2}/>
-                <ShortRow value = {currency.vallueCurency3}/>
+                <ShortRow value = {currency.valueCurrency1}/>
+                <ShortRow value = {currency.valueCurrency2}/>
+                <ShortRow value = {currency.valueCurrency3}/>
                 </div>
                 :<div></div>
             }

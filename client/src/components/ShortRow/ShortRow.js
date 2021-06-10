@@ -6,15 +6,10 @@ const ShortRow = (props) => {
     const [smaller, setSmaller] = useState(false);
     const classMark  = 'mark_row';
     useEffect(()=>{
-        if(typeof props.value === 'object'){
-            
+        {
             const {value , smaller} = props.value;
             setValueDiv(value);
             setSmaller(smaller);
-        }
-        else{
-          setValueDiv(props.value);
-
         }
         return ()=>{
             setValueDiv(null);

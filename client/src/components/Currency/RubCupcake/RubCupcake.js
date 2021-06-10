@@ -1,9 +1,9 @@
 import GetBaseCurrency from'../../GetBaseCurrency/GetBaseCurrency';
 
-const RubCupcake = (props) => {
+const RubCupcake = ({currency}) => {
     const rowName = 'RUB/CUPCAKE';
     return(
-      <GetBaseCurrency currency={props} rowName = {rowName}/>
+      <GetBaseCurrency currency={currency} rowName = {rowName}/>
     )
 }
 

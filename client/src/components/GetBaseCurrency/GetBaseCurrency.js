@@ -4,6 +4,7 @@ import LongRow from '../LongRow/LongRow';
 import './GetBaseCurrency.css';
 
 const GetBaseCurrency = ({rowName , currency : {currency}}) => {
+            console.log(currency , 'курент')
             return (
             <div >
                 {currency ? 

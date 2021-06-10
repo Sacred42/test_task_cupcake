@@ -37,6 +37,7 @@ class GetApiCurrency extends React.Component {
     
     render(){
         const {RUB, USD, EUR} = this.state;
+        console.log(RUB , 'RUB')
         return(
           <div>
             <RubCupcake currency={RUB}/>

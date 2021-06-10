@@ -5,8 +5,10 @@ const ShortRow = (props) => {
     const [valueDiv , setValueDiv] = useState(null);
     const [smaller, setSmaller] = useState(false);
     const classMark  = 'mark_row';
+    console.log(props, 'пропа')
     useEffect(()=>{
         if(typeof props.value === 'object'){
+            
             const {value , smaller} = props.value;
             setValueDiv(value);
             setSmaller(smaller);

@@ -41,7 +41,6 @@ class GetApiCurrency extends React.Component {
   }
 
   render() {
-    console.log(RubCupcake);
     const { RUB, USD, EUR, loading } = this.state;
     if (loading) {
       return <div>...Loading</div>;

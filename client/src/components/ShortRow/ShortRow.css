@@ -1,14 +1,14 @@
-.short_row_size{
-    display: flex;
-    align-items:center;
-    padding-left: 15px;
-    width:220px;
-    height:70px;
-    background-color: #ece9e9;
-    border: 1px solid #808080;
+.short_row_size {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  width: 220px;
+  height: 70px;
+  background-color: #ece9e9;
+  border: 1px solid #808080;
 }
 
 .mark_row {
-    background-color: blue;
-    color : #FFF
+  background-color: blue;
+  color: #fff;
 }

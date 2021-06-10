@@ -1,12 +1,12 @@
-import './App.css';
-import Header from './components/Header/Header';
-import GetCurrency from './components/Currency/GetApiCurrency/GetApiCurrency';
+import "./App.css";
+import Header from "./components/Header/Header";
+import GetCurrency from "./components/GetApiCurrency/GetApiCurrency";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <GetCurrency/>
+      <Header />
+      <GetCurrency />
     </div>
   );
 }

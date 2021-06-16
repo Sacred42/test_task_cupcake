@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState , useEffect} from "react";
 import Ajax from "../../services/ajax";
 import {
   getSortedCurrency,
@@ -15,33 +15,29 @@ import {
   RubUsd,
 } from "../../constants/RowConst";
 
-class GetApiCurrency extends React.Component {
-  ajax = new Ajax();
-  state = {
-    RUB: null,
-    USD: null,
-    EUR: null,
-    loading: true,
-  };
-  componentDidMount() {
-    this.ajax.reqRender().then((values) => this.update(values));
+const GetApiCurrency = () => {
+  const ajax = new Ajax();
+  const [RUB , setRUB] = useState(null);
+  const [USD, setUSD] = useState(null);
+  const [EUR, setEUR] = useState(null);
+  const [valuesState, setValuesState] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    if(!valuesState){
+     return  ajax.reqRender().then((values) => update(values));
+    }
+      ajax.reqPoll().then((values) => update(values));
+  },[valuesState])
+
+  const update = (values) => {
+    setValuesState(values);
+    setRUB(getSortedCurrency(values, "RUB"));
+    setUSD(getSortedCurrency(values, "USD"));
+    setEUR(getSortedCurrency(values, "EUR"));
+    setLoading(false);
   }
 
-  componentDidUpdate() {
-    this.ajax.reqPoll().then((values) => this.update(values));
-  }
-
-  update(values) {
-    this.setState({
-      RUB: getSortedCurrency(values, "RUB"),
-      USD: getSortedCurrency(values, "USD"),
-      EUR: getSortedCurrency(values, "EUR"),
-      loading: false,
-    });
-  }
-
-  render() {
-    const { RUB, USD, EUR, loading } = this.state;
     if (loading) {
       return <div>...Loading</div>;
     }
@@ -73,7 +69,6 @@ class GetApiCurrency extends React.Component {
         />
       </div>
     );
-  }
 }
 
 export default GetApiCurrency;

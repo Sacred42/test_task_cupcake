@@ -24,11 +24,13 @@ const GetApiCurrency = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
-    if(!valuesState){
-     return  ajax.reqRender().then((values) => update(values));
-    }
-      ajax.reqPoll().then((values) => update(values));
-  },[valuesState])
+     ajax.reqRender().then((values) => update(values));
+
+  },[])
+
+  useEffect(()=>{
+    ajax.reqPoll().then((values) => update(values));
+  }, [valuesState])
 
   const update = (values) => {
     setValuesState(values);
